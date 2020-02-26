@@ -1,0 +1,50 @@
+* , *::before, *::after{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.mainContainer{
+    /*max-width: 1800px;*/
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainNav{
+    width: 100vw;
+    display: flex;
+    height: 3rem;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #1976D2 -2.19%, #2196F3 -2.18%, #2521F3 101.05%, #2196F3 101.06%);
+    color: white;
+    padding-left: 40px;
+}
+.logoLink, .link{
+    text-decoration: none;
+    color: white;
+}
+.link{    
+    padding: 1rem;
+}
+.navLogo{
+    font-size: 1.4em;
+}
+.navLinks{
+    font-size: 1.2em;
+    display: flex;
+    text-decoration: none;
+}
+
+.home{
+    flex-grow: 1;
+    background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("/img/House.jpg");
+    background-size: cover;
+    background-position: 0 -1100px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
