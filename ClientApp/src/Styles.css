@@ -4,6 +4,7 @@
 body{
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
 .mainContainer{
@@ -16,30 +17,51 @@ body{
 .mainNav{
     width: 100vw;
     display: flex;
-    height: 3rem;
+    height: 2rem;
     justify-content: space-between;
     align-items: center;
     background: linear-gradient(90deg, #1976D2 -2.19%, #2196F3 -2.18%, #2521F3 101.05%, #2196F3 101.06%);
     color: white;
     padding-left: 40px;
 }
-.logoLink, .link{
+.logoLink, .link, .cart_link{
     text-decoration: none;
     color: white;
+    /*transform: 1s;*/
 }
-.link{    
-    padding: 1rem;
+.link:hover, .cart_link:hover{
+    color: lightgray;
 }
+.link, .cart_link{    
+    padding: .2rem 1rem;
+}
+.cart_link{
+    background-color: #8BC34A;
+    margin-right: 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
 .navLogo{
-    font-size: 1.4em;
+    background-color: #8BC34A;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 3px solid #2521F3;
+    padding: 0rem .6rem;
+    border-radius: 20px;
+}
+.logoLink{
+    font-family: fantasy;
+    color: #2521F3;
 }
 .navLinks{
     font-size: 1.2em;
     display: flex;
-    text-decoration: none;
 }
 
+
 .home{
+    display: flex;
     flex-grow: 1;
     background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("/img/House.jpg");
     background-size: cover;
@@ -47,4 +69,33 @@ body{
     color: white;
     justify-content: center;
     align-items: center;
+}
+.home_text{
+    width: 553px;
+    font-family: sans-serif;
+    font-size: 1.4rem;
+    color: lightgray;
+}
+
+.home_header{
+    align-items: flex-end;
+    justify-content: unset;
+    position: relative;
+    top: -120px;
+
+}
+
+.home h1{
+    color: lightgray;
+    font-size: 4rem;
+    padding: 10px 30px;
+    margin: 0;
+    align-items: baseline;
+}
+.home h2{
+    color: lightgray;
+    font-size: 2rem;
+    padding: 0 30px;
+    margin: 0;
+    text-align: right;
 }
