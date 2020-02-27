@@ -61,14 +61,18 @@ body{
 
 
 .home{
-    display: flex;
     flex-grow: 1;
     background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("/img/House.jpg");
     background-size: cover;
     background-position: 0 -1100px;
+}
+.home_content{
+    height: 80vh;
+    display: flex;
     color: white;
     justify-content: center;
     align-items: center;
+
 }
 .home_text{
     width: 553px;
@@ -98,4 +102,23 @@ body{
     padding: 0 30px;
     margin: 0;
     text-align: right;
+}
+
+.help_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.help_btn a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 220px;
+    border-radius: 15px;
+    background-color: #8BC34A;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
 }
