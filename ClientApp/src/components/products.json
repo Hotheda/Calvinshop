@@ -1,0 +1,28 @@
+{"products":
+    [
+        {
+            "id": 1,
+            "name": "T-shirt",
+            "img": "shirt.jpg",
+            "description": "Nice shirt with a statement",
+            "storlek": ["s", "m", "l"],
+            "färg": ["blå", "röd", "gul"]
+        },
+        {
+            "id": 2,
+            "name": "Polo shirt",
+            "img": "shirt_eng.jpg",
+            "description": "Nice polo statement is futile",
+            "storlek": ["s", "m", "l"],
+            "färg": ["blå", "röd", "gul"]
+        },
+        {
+            "id": 3,
+            "name": "Cap",
+            "img": "cap.jpg",
+            "description": "Nice cap with a statement",
+            "storlek": ["onesize"],
+            "färg": ["svart", "gul"]
+        }
+    ]
+}
