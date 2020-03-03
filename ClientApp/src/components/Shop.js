@@ -6,7 +6,7 @@ function Shop(){
         return (
             <div key={item.id} className="product_frame">
                 <h3>{item.name}</h3>
-                <img className= "product_img" src={"./img/products/"+item.img}/>
+                <img className= "product_img" alt="productimage" src={"./img/products/"+item.img}/>
                 <p>{item.description}</p>
             </div>
         )
