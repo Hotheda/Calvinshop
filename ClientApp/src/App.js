@@ -8,6 +8,7 @@ import About from "./components/About"
 import Checkout from "./components/Checkout"
 import NotFound from "./components/Notfound"
 import "./Styles.css"
+import ProductsContextProvider from "./components/ProductsContext"
 
 class App extends React.Component{
     render(){
@@ -15,7 +16,8 @@ class App extends React.Component{
             <div className="mainContainer">
                 <Router>
                     <React.Fragment>
-                        <Navbar/>
+                        <ProductsContextProvider>
+                            <Navbar/>
                             <Switch>
                                 <Route exact path="/" component={Home} />
                                 <Route path ="/shop" component={Shop} />
@@ -23,6 +25,7 @@ class App extends React.Component{
                                 <Route path = "/cart" component={Checkout} />
                                 <Route component={NotFound} />
                             </Switch>
+                        </ProductsContextProvider>
                     </React.Fragment>
                 </Router>
             </div>
