@@ -3,24 +3,12 @@ import {ProductsContext} from "./ProductsContext"
 
 
 function Shop(){
-    const [products, setProducts] = useContext(ProductsContext)
-    //console.log(useContext(ProductsContext).productsList)
-    function myClick(item){
-        setProducts(products.map((product=>{
-            if(item.id===product.id){
-                product.inCart=!product.inCart
-                return(
-                    product
-                )
-            }
-            else{
-                return(
-                    product
-                )
-            }
-        })))
+    const [products, /*setProducts*/, cartList, setCartList] = useContext(ProductsContext)
+    function addToCart(item){
+        setCartList([...cartList, item])
+        alert(item.name+" added to cart")
     }
-    
+   
     const product=products.map((item)=>{
         return (
             <div key={item.id} className="product_frame">
@@ -28,7 +16,7 @@ function Shop(){
                 <img className= "product_img" alt="productimage" src={"./img/products/"+item.img}/>
                 <p>{item.description}</p>
                 <p><strong>{item.price}$</strong></p>
-                <button onClick={()=>myClick(item)} >{(item.inCart) ? "In cart" : "Buy now"}</button>
+                <button onClick={()=>addToCart(item)} >{(item.inCart) ? "In cart" : "Buy now"}</button>
             </div>
         )
     })

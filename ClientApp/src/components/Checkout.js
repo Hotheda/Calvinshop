@@ -3,21 +3,26 @@ import { ProductsContext } from "./ProductsContext"
 
 
 function Checkout(){
-    const [cartItems, setCartItems] = useContext(ProductsContext);
+    const [/*productList*/, /*setproductList*/, cartList, setCartList] = useContext(ProductsContext);
 
-    const cartList = cartItems.map((item)=>{
-        if(item.inCart){
-            return <li>{item.name}</li>
-        }
-    })
+    let cartItems = null
+    let total=0
 
-    console.log(cartList)
+    if(cartList.length!=0){        
+        cartItems = cartList.map((item)=>{
+            total+=item.price
+            return (<li key={item.id}>{item.name} Size:{item.size} Price:{item.price}$</li>)
+        })
+    }
+
     return(
         <div>
             <h1>Checkout</h1>
             <ul>
-                {cartList}
+                {!cartItems ? <h3>No products</h3> : cartItems}
+                {/*cartItems*/}
             </ul>
+            <h2>{total} $</h2>
         </div>
     )
 }
