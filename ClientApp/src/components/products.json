@@ -5,6 +5,7 @@
             "name": "T-shirt",
             "img": "shirt_small.jpg",
             "description": "Nice shirt with a statement",
+            "price": 20,
             "storlek": ["s", "m", "l"],
             "färg": ["blå", "röd", "gul"]
         },
@@ -13,6 +14,7 @@
             "name": "Polo shirt",
             "img": "shirt2_small.jpg",
             "description": "Nice polo statement is futile",
+            "price": 15,
             "storlek": ["s", "m", "l"],
             "färg": ["blå", "röd", "gul"]
         },
@@ -21,6 +23,7 @@
             "name": "Cap",
             "img": "cap_small.jpg",
             "description": "Nice cap with a statement",
+            "price": 5,
             "storlek": ["onesize"],
             "färg": ["svart", "gul"]
         }
