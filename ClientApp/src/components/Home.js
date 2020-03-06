@@ -13,7 +13,7 @@ function Home(){
                 </div>
             </div>
             <div className="help_btn">
-                <a href="">How can i help?</a>
+                <a href="none">How can i help?</a>
             </div>
         </div>
     )
