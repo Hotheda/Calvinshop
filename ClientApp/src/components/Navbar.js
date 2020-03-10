@@ -4,7 +4,6 @@ import { ProductsContext } from "./ProductsContext"
 
 function Navbar(){
     const [/* */,/* */,cartList, /* */] = useContext(ProductsContext)
-    console.log("cartlist.length: ",cartList.length)
     return(
         <nav className="mainNav">
             <div className="navLogo">

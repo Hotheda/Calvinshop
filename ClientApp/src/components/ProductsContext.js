@@ -5,8 +5,8 @@ export const ProductsContext = createContext();
 
 function ProductsContextProvider(props){
     const ProductListState=products.products.map(product => {
-        if(product.inCart===null)
-            product.inCart = false
+        if(product.inCart==null)
+            product.inCart = 1
         return(product)
     })
     const [productList, setProductList] = useState(ProductListState)

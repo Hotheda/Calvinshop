@@ -8,10 +8,10 @@ function Checkout(){
     let cartItems = null
     let total=0
 
-    if(cartList.length!=0){        
+    if(cartList.length!==0){        
         cartItems = cartList.map((item)=>{
             total+=item.price
-            return (<li key={item.id}>{item.name} Size:{item.size} Price:{item.price}$</li>)
+            return (<li key={item.id}>{item.inCart}: {item.name} Size:{item.size} Price:{item.price}$</li>)
         })
     }
 

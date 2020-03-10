@@ -4,9 +4,22 @@ import {ProductsContext} from "./ProductsContext"
 
 function Shop(){
     const [products, /*setProducts*/, cartList, setCartList] = useContext(ProductsContext)
+
     function addToCart(item){
-        setCartList([...cartList, item])
-        alert(item.name+" added to cart")
+        /***** Check if item is in cart  *****/
+        var isInCart=false
+        if(cartList.length!==0){
+            cartList.forEach(product => {
+                if(item.id===product.id){
+                    product.inCart++;
+                    isInCart=true
+                }
+            });
+        }
+        if(!isInCart){
+            setCartList([...cartList, item])
+            alert(item.name+" added to cart")
+        }
     }
    
     const product=products.map((item)=>{
@@ -16,7 +29,7 @@ function Shop(){
                 <img className= "product_img" alt="productimage" src={"./img/products/"+item.img}/>
                 <p>{item.description}</p>
                 <p><strong>{item.price}$</strong></p>
-                <button onClick={()=>addToCart(item)} >{(item.inCart) ? "In cart" : "Buy now"}</button>
+                <button onClick={()=>addToCart(item)} >{/*(item.inCart) ? "In cart" : */"Buy now"}</button>
             </div>
         )
     })
