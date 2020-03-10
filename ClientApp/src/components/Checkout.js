@@ -10,7 +10,7 @@ function Checkout(){
 
     if(cartList.length!==0){        
         cartItems = cartList.map((item)=>{
-            total+=item.price
+            total+= (item.price * item.inCart)
             return (<li key={item.id}>{item.inCart}: {item.name} Size:{item.size} Price:{item.price}$</li>)
         })
     }
