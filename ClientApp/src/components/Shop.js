@@ -23,12 +23,20 @@ function Shop(){
     }
    
     const product=products.map((item)=>{
+
         return (
             <div key={item.id} className="product_frame">
                 <h3>{item.name}</h3>
                 <img className= "product_img" alt="productimage" src={"./img/products/"+item.img}/>
                 <p>{item.description}</p>
                 <p><strong>{item.price}$</strong></p>
+                <select id="size">
+                    {item.size.map((myItem=>{
+                        console.log(myItem)
+                        return( <option key={myItem} value={myItem}>{myItem}</option> )
+                    }))}
+                </select>
+                
                 <button onClick={()=>addToCart(item)} >{/*(item.inCart) ? "In cart" : */"Buy now"}</button>
             </div>
         )

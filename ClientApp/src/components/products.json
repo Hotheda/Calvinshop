@@ -6,8 +6,8 @@
             "img": "shirt_small.jpg",
             "description": "Nice shirt with a statement",
             "price": 20,
-            "storlek": ["s", "m", "l"],
-            "färg": ["blå", "röd", "gul"]
+            "size": ["S", "M", "L"],
+            "color": ["blå", "röd", "gul"]
         },
         {
             "id": 2,
@@ -15,8 +15,8 @@
             "img": "shirt2_small.jpg",
             "description": "Nice polo statement is futile",
             "price": 15,
-            "storlek": ["s", "m", "l"],
-            "färg": ["blå", "röd", "gul"]
+            "size": ["S", "M", "L"],
+            "color": ["blå", "röd", "gul"]
         },
         {
             "id": 3,
@@ -24,8 +24,8 @@
             "img": "cap_small.jpg",
             "description": "Nice cap with a statement",
             "price": 5,
-            "storlek": ["onesize"],
-            "färg": ["svart", "gul"]
+            "size": ["Onesize"],
+            "color": ["svart", "gul"]
         }
     ]
 }
