@@ -23,7 +23,6 @@ function Shop(){
     }
    
     const product=products.map((item)=>{
-
         return (
             <div key={item.id} className="product_frame">
                 <h3>{item.name}</h3>
@@ -32,7 +31,6 @@ function Shop(){
                 <p><strong>{item.price}$</strong></p>
                 <select id="size">
                     {item.size.map((myItem=>{
-                        console.log(myItem)
                         return( <option key={myItem} value={myItem}>{myItem}</option> )
                     }))}
                 </select>
@@ -41,6 +39,11 @@ function Shop(){
             </div>
         )
     })
+
+    /**************************************
+     * TODO ADD SELECTED SIZE TO CARTITEM *
+     **************************************/
+    
     return(
         <div>            
             <h1 className="shop_header">Products</h1>

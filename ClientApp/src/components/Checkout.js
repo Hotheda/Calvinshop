@@ -15,6 +15,14 @@ function Checkout(){
         })
     }
 
+    /**************************
+     * TODO ADD REMOVE BUTTON *
+     **************************/
+
+     /*************************
+      * TODO ADD CHANGE LIST  *
+      *************************/
+
     return(
         <div>
             <h1>Checkout</h1>
