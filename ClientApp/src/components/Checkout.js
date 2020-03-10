@@ -3,7 +3,7 @@ import { ProductsContext } from "./ProductsContext"
 
 
 function Checkout(){
-    const [/*productList*/, /*setproductList*/, cartList, setCartList] = useContext(ProductsContext);
+    const [/*productList*/, /*setproductList*/, cartList, /*setCartList*/] = useContext(ProductsContext);
 
     let cartItems = null
     let total=0
