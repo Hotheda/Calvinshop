@@ -25,7 +25,6 @@ function ProductCard(props){
             setCartList([...cartList, newitem])
             alert(item.name+" added to cart")
         }
-        console.log(newitem)
     }
 
     function onSizeChange(e){
