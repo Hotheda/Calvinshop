@@ -3,21 +3,28 @@ import { ProductsContext } from "./ProductsContext"
 
 
 function Checkout(){
-    const [/*productList*/, /*setproductList*/, cartList, /*setCartList*/] = useContext(ProductsContext);
+    const [/*productList*/, /*setproductList*/, cartList, setCartList] = useContext(ProductsContext);
 
     let cartItems = null
     let total=0
 
+
+
     if(cartList.length!==0){        
-        cartItems = cartList.map((item)=>{
+        cartItems = cartList.map((item, index)=>{
             total+= (item.price * item.inCart)
-            return (<li key={item.id}>{item.inCart}: {item.name} Size:{item.size} Price:{item.price}$</li>)
+            return (<div>
+                        <li key={item.id}>{item.inCart}: {item.name} Size:{item.size} Price:{item.price}$</li>
+                        <button onClick={(e)=>{
+                                let tempCart = [...cartList]
+                                tempCart.splice(index,1)
+                                setCartList(tempCart)
+                            }
+                        }>Remove</button>
+                        <hr/>
+                    </div>)
         })
     }
-
-    /**************************
-     * TODO ADD REMOVE BUTTON *
-     **************************/
 
      /*************************
       * TODO ADD CHANGE LIST  *
