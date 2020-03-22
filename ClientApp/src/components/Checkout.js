@@ -13,8 +13,8 @@ function Checkout(){
     if(cartList.length!==0){        
         cartItems = cartList.map((item, index)=>{
             total+= (item.price * item.inCart)
-            return (<div>
-                        <li key={item.id}>{item.inCart}: {item.name} Size:{item.size} Price:{item.price}$</li>
+            return (<div key={item.id}>
+                        <li>{item.inCart}: {item.name} Size:{item.size} Price:{item.price}$</li>
                         <button onClick={(e)=>{
                                 let tempCart = [...cartList]
                                 tempCart.splice(index,1)

@@ -7,13 +7,14 @@ function ProductCard(props){
 
     function addToCart(item){
         /***** Check if item is in cart  *****/
+        var tempCart = cartList
         var isInCart=false
         var newitem = JSON.parse(JSON.stringify(item))
         newitem.size = seletedSize
         newitem.id = item.id+"-"+seletedSize
 
-        if(cartList.length!==0){
-            cartList.forEach(product => {
+        if(tempCart.length!==0){
+            tempCart.forEach(product => {
                 if(newitem.id===product.id){
                     product.inCart++;
                     isInCart=true
@@ -22,9 +23,10 @@ function ProductCard(props){
             });
         }
         if(!isInCart){
-            setCartList([...cartList, newitem])
+            setCartList([...tempCart, newitem])
             alert(item.name+" added to cart")
-        }
+        }else
+            setCartList([...tempCart])
     }
 
     function onSizeChange(e){
