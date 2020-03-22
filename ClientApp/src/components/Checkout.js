@@ -1,4 +1,4 @@
-import React,{ useContext } from "react"
+import React,{ useContext, useCallback } from "react"
 import { ProductsContext } from "./ProductsContext"
 
 
@@ -8,20 +8,27 @@ function Checkout(){
     let cartItems = null
     let total=0
 
-
+    const handleNumberOfItems = useCallback( (e,index)=>{
+        var tempCart = [...cartList];
+        tempCart[index].inCart = parseInt(e.target.value);
+        setCartList([...tempCart]);
+    })
 
     if(cartList.length!==0){        
         cartItems = cartList.map((item, index)=>{
             total+= (item.price * item.inCart)
             return (<div key={item.id}>
-                        <li>{item.inCart}: {item.name} Size:{item.size} Price:{item.price}$</li>
-                        <button onClick={(e)=>{
+                        <li>
+                            <input type="number" value={item.inCart} onChange={(e)=>handleNumberOfItems(e,index, )}/>
+                            <p>{item.name} Size:{item.size} Price:{item.price}$</p>
+                            <button onClick={(e)=>{
                                 let tempCart = [...cartList]
                                 tempCart.splice(index,1)
                                 setCartList(tempCart)
                             }
-                        }>Remove</button>
-                        <hr/>
+                            }>Remove</button>
+                            <hr/>
+                        </li>
                     </div>)
         })
     }
