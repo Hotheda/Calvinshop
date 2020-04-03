@@ -19,6 +19,11 @@ class App extends React.Component{
                         <ProductsContextProvider>
                             <Navbar/>
                             <Switch>
+                                {/* <Route exact path="/calvin/" component={Home} />
+                                <Route path ="/calvin/shop" component={Shop} />
+                                <Route path ="/calvin/about" component={About} />
+                                <Route path = "/calvin/cart" component={Checkout} />
+                                <Route component={NotFound} /> */}
                                 <Route exact path="/" component={Home} />
                                 <Route path ="/shop" component={Shop} />
                                 <Route path ="/about" component={About} />

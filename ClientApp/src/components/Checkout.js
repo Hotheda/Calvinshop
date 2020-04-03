@@ -10,7 +10,10 @@ function Checkout(){
 
     const handleNumberOfItems = useCallback( (e,index)=>{
         var tempCart = [...cartList];
-        tempCart[index].inCart = parseInt(e.target.value);
+        if( parseInt(e.target.value)>0 && parseInt(e.target.value)<11 ){
+            tempCart[index].inCart = parseInt(e.target.value);
+            console.log("funkar")
+        }
         setCartList([...tempCart]);
     })
 
