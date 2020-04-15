@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 
 function Home(){
     return(    
@@ -13,7 +14,7 @@ function Home(){
                 </div>
             </div>
             <div className="help_btn">
-                <a href="none">How can i help?</a>
+                <Link className="link" to="./about">How can i help?</Link>
             </div>
         </div>
     )

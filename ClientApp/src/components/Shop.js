@@ -8,7 +8,7 @@ function Shop(){
 
     var productCards = products.map(item=><ProductCard key={item.id} item={item}/>)
     return(
-        <div>            
+        <div className="shop_main">            
             <h1 className="shop_header">Products</h1>
             <div className="products">            
                 {productCards}

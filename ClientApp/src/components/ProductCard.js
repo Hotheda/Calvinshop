@@ -35,8 +35,8 @@ function ProductCard(props){
 
     return (        
         <div className="product_frame">
-            <h3>{props.item.name}</h3>
             <img className= "product_img" alt="productimage" src={"./img/products/"+props.item.img}/>
+            <h3>{props.item.name}</h3>
             <p>{props.item.description}</p>
             <p><strong>{props.item.price}$</strong></p>
             <select value={seletedSize} onChange={(e)=>onSizeChange(e)}>

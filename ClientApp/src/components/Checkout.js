@@ -20,10 +20,12 @@ function Checkout(){
     if(cartList.length!==0){        
         cartItems = cartList.map((item, index)=>{
             total+= (item.price * item.inCart)
-            return (<div key={item.id}>
-                        <li>
+            return (<div ey={item.id}>
+                        <li className="cartitem">
                             <input type="number" value={item.inCart} onChange={(e)=>handleNumberOfItems(e,index, )}/>
-                            <p>{item.name} Size:{item.size} Price:{item.price}$</p>
+                            <img className= "product_img" alt="cart_image" src={"./img/products/"+item.img}/>
+                            <p>{item.name} Size:{item.size}</p>
+                            <p>Price:{item.price}$</p>
                             <button onClick={(e)=>{
                                 let tempCart = [...cartList]
                                 tempCart.splice(index,1)

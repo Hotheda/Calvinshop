@@ -129,6 +129,11 @@ body{
 }
 
 /****** SHOP ******/
+.shop_main{
+    height: 100vh;
+    background: rgb(231, 231, 2390);
+}
+
 .shop_header{
     text-align: center;
 }
@@ -142,6 +147,7 @@ body{
     flex-direction: column;
     align-items: center;
 
+    background: rgba(245, 245, 245, 1);
     border: 1px solid lightgrey;
     border-radius: 10px;
     box-shadow: 1px 1px lightgray;
@@ -152,8 +158,34 @@ body{
     height: fit-content;
     overflow: hidden;
 }
+.product_frame *{
+    margin: 5px;
+}
+
 .product_img{
-    width: 80px;
+    margin: 20px;
+    width: 120px;
+}
+
+/****** Cart ******/
+.cartitem{
+    display: flex;
+    /*width: 100vw;*/
+    align-items: center;
+}
+.cartitem p{
+    width: 150px;
+    margin: 30px;
+}
+
+.cartitem img{
+    height: 70px;
+    width: 70px;
+}
+
+.cartitem input{
+    font-size: 20px;
+    width: 40px;
 }
 
 /****** XXX ******/
