@@ -14,12 +14,12 @@ class App extends React.Component{
     render(){
         return(
             <div className="mainContainer">
-                <Router>
+                <Router basename="/calvin">
                     <React.Fragment>
                         <ProductsContextProvider>
                             <Navbar/>
                             <Switch>
-                                {/* <Route exact path="/calvin/" component={Home} />
+                                {/* <Route exact path="/calvin" component={Home} />
                                 <Route path ="/calvin/shop" component={Shop} />
                                 <Route path ="/calvin/about" component={About} />
                                 <Route path = "/calvin/cart" component={Checkout} />
