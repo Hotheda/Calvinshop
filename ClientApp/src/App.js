@@ -10,8 +10,9 @@ import NotFound from "./components/Notfound"
 import "./Styles.css"
 import ProductsContextProvider from "./components/ProductsContext"
 
-class App extends React.Component{
+class App extends React.Component{    
     render(){
+        console.log("url($)")
         return(
             <div className="mainContainer">
                 <Router basename="/calvin">
