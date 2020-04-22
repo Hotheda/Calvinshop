@@ -1,5 +1,6 @@
 import React,{ useContext, useCallback } from "react"
 import { ProductsContext } from "./ProductsContext"
+import {Link} from "react-router-dom"
 
 
 function Checkout(){
@@ -50,6 +51,9 @@ function Checkout(){
                 {/*cartItems*/}
             </ul>
             <h2>{total} $</h2>
+            <div>
+                <Link to="./checkout">Checkout</Link>
+            </div>
         </div>
     )
 }

@@ -6,7 +6,9 @@ import Home from "./components/Home"
 import Shop from "./components/Shop"
 import About from "./components/About"
 import Checkout from "./components/Checkout"
+import Orderform from "./components/Orderform"
 import NotFound from "./components/Notfound"
+
 import "./Styles.css"
 import ProductsContextProvider from "./components/ProductsContext"
 
@@ -29,6 +31,7 @@ class App extends React.Component{
                                 <Route path ="/shop" component={Shop} />
                                 <Route path ="/about" component={About} />
                                 <Route path = "/cart" component={Checkout} />
+                                <Route path = "/checkout" component={Orderform} />
                                 <Route component={NotFound} />
                             </Switch>
                         </ProductsContextProvider>
