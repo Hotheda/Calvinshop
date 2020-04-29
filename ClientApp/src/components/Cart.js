@@ -1,4 +1,4 @@
-import React,{ useContext, useCallback } from "react"
+import React,{ useContext } from "react"
 import { ProductsContext } from "./ProductsContext"
 import {Link} from "react-router-dom"
 
@@ -9,19 +9,19 @@ function Cart(){
     let cartItems = null
     let total=0
 
-    const handleNumberOfItems = useCallback( (e,index)=>{
+    // Checking number of items so we dont go negative or to big
+    const handleNumberOfItems = (e,index)=>{
         var tempCart = [...cartList];
         if( parseInt(e.target.value)>0 && parseInt(e.target.value)<11 ){
             tempCart[index].inCart = parseInt(e.target.value);
-            console.log("funkar")
         }
         setCartList([...tempCart]);
-    })
+    }
 
     if(cartList.length!==0){        
         cartItems = cartList.map((item, index)=>{
             total+= (item.price * item.inCart)
-            return (<div ey={item.id}>
+            return (<div key={item.id}>
                         <li className="cartitem">
                             <input type="number" value={item.inCart} onChange={(e)=>handleNumberOfItems(e,index, )}/>
                             <img className= "product_img" alt="cart_image" src={"./img/products/"+item.img}/>
