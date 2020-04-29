@@ -5,9 +5,10 @@ import Navbar from "./components/Navbar"
 import Home from "./components/Home"
 import Shop from "./components/Shop"
 import About from "./components/About"
+import Cart from "./components/Cart"
 import Checkout from "./components/Checkout"
-import Orderform from "./components/Orderform"
 import NotFound from "./components/Notfound"
+import Confirm from "./components/Confirm"
 
 import "./Styles.css"
 import ProductsContextProvider from "./components/ProductsContext"
@@ -30,8 +31,9 @@ class App extends React.Component{
                                 <Route exact path="/" component={Home} />
                                 <Route path ="/shop" component={Shop} />
                                 <Route path ="/about" component={About} />
-                                <Route path = "/cart" component={Checkout} />
-                                <Route path = "/checkout" component={Orderform} />
+                                <Route path = "/cart" component={Cart} />
+                                <Route path = "/checkout" component={Checkout} />
+                                <Route path = "/confirm" component={Confirm} />
                                 <Route component={NotFound} />
                             </Switch>
                         </ProductsContextProvider>

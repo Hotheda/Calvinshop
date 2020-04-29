@@ -1,61 +1,59 @@
-import React,{ useContext, useCallback } from "react"
-import { ProductsContext } from "./ProductsContext"
-import {Link} from "react-router-dom"
+import React, { useState } from "react"
 
-
-function Checkout(){
-    const [/*productList*/, /*setproductList*/, cartList, setCartList] = useContext(ProductsContext);
-
-    let cartItems = null
-    let total=0
-
-    const handleNumberOfItems = useCallback( (e,index)=>{
-        var tempCart = [...cartList];
-        if( parseInt(e.target.value)>0 && parseInt(e.target.value)<11 ){
-            tempCart[index].inCart = parseInt(e.target.value);
-            console.log("funkar")
-        }
-        setCartList([...tempCart]);
+export default function Checkout(props){
+    const [customerData, setCustomerData] = useState({
+        firstname: "",
+        lastname: "",
+        adress: "",
+        zipcode: "",
+        city: "",
+        email: ""
     })
 
-    if(cartList.length!==0){        
-        cartItems = cartList.map((item, index)=>{
-            total+= (item.price * item.inCart)
-            return (<div ey={item.id}>
-                        <li className="cartitem">
-                            <input type="number" value={item.inCart} onChange={(e)=>handleNumberOfItems(e,index, )}/>
-                            <img className= "product_img" alt="cart_image" src={"./img/products/"+item.img}/>
-                            <p>{item.name} Size:{item.size}</p>
-                            <p>Price:{item.price}$</p>
-                            <button onClick={(e)=>{
-                                let tempCart = [...cartList]
-                                tempCart.splice(index,1)
-                                setCartList(tempCart)
-                            }
-                            }>Remove</button>
-                            <hr/>
-                        </li>
-                    </div>)
-        })
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+        props.history.push("/confirm", customerData)
     }
 
-     /*************************
-      * TODO ADD CHANGE LIST  *
-      *************************/
+    const handleChange = (e)=>{
+        if(e.target.id==="firstName"){
+            setCustomerData({...customerData, firstname: e.target.value})
+        }else if(e.target.id==="lastName"){
+            setCustomerData({...customerData, lastname: e.target.value})
+        }else if(e.target.id==="customerAdress"){
+            setCustomerData({...customerData, adress: e.target.value})
+        }else if(e.target.id==="zipCode"){
+            setCustomerData({...customerData, zipcode: e.target.value})
+        }else if(e.target.id==="city"){
+            setCustomerData({...customerData, city: e.target.value})
+        }else if(e.target.id==="eMail"){
+            setCustomerData({...customerData, email: e.target.value})
+        }
+
+        //console.log(customerData.firstname)
+    }
 
     return(
         <div>
-            <h1>Checkout</h1>
-            <ul>
-                {!cartItems ? <h3>No products</h3> : cartItems}
-                {/*cartItems*/}
-            </ul>
-            <h2>{total} $</h2>
-            <div>
-                <Link to="./checkout">Checkout</Link>
-            </div>
+            <p>Orderform</p>
+            <form>
+                <div>
+                    <p>Name</p>
+                    <input id="firstName" placeholder="First name" onChange={handleChange} value={customerData.firstname}/>
+                    <input id="lastName" placeholder="Last name" onChange={handleChange} value={customerData.lastname}/>
+                    <br/>
+                </div>
+                <p>Adress</p>
+                <input id="customerAdress" placeholder="Street adress" onChange={handleChange} value={customerData.adress}/>
+                <p>Zip code</p>
+                <input id="zipCode" placeholder="Zip code" onChange={handleChange} value={customerData.zipcode}/>
+                <p>City</p>
+                <input id="city" placeholder="City" onChange={handleChange} value={customerData.city}/>
+                <p>E-mail</p>
+                <input id="eMail" placeholder="E-mail" onChange={handleChange} value={customerData.email}/>
+                <br/>
+                <button onClick={handleSubmit}>Comfirm order</button>
+            </form>
         </div>
     )
 }
-
-export default Checkout

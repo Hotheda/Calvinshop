@@ -5,12 +5,10 @@ import { ProductsContext } from "./ProductsContext"
 function Navbar(){
     const [/* */,/* */,cartList, /* */] = useContext(ProductsContext)
     
-    var itemsInCart = 0;
-    if(cartList.length!==0){        
-        cartList.forEach(product => {
-            itemsInCart += product.inCart;
-        });
-    }
+    // Count number of items in cart
+    const itemsInCart = cartList.reduce((number, item)=>{
+        return number+item.inCart;
+    },0);
 
     return(
         <nav className="mainNav">
