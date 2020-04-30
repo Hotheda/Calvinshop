@@ -33,8 +33,29 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
         setOrderConfirmed(!orderConfirmed)
 
         // If payment success then delete shoppingcart items
-        //render products before deleting
         setCart([]);
+
+        /* Send mail to user and company */
+        sendMail("hotheda@gmail.com, dev@odehammar.com")
+    }
+
+    const sendMail = (mail)=>{
+        const YOUR_SERVICE_ID = "sendgrid_calvin";
+        const YOUR_TEMPLATE_ID = "template_ginNHzZ2";
+
+        const MY_VARS = {
+            from_name: "Calvin shop",
+            mail_to: mail,
+            message_html: "Här kommer prudukterna och sånt"
+        }
+
+        window.emailjs.send(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, MY_VARS)
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            }
+        );
     }
 
     const calculateTotal = () =>{
