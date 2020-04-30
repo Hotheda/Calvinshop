@@ -28,6 +28,15 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
         )
     })
 
+    let userCartMail = orderItems.map((item)=>{
+        return(
+            "<li key="+item.id+">"+
+                "<p>product id: " + item.id +" - " + item.price +"$</p>"+
+                "<p>"+item.inCart+" item of "+item.name+" size: "+item.size+"</p>"+
+            "</li>"
+        )
+    })
+
 
     const handleClick = (e)=>{
         setOrderConfirmed(!orderConfirmed)
@@ -39,25 +48,8 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
         sendMail("hotheda@gmail.com, dev@odehammar.com")
     }
 
-    const sendMail = (mail)=>{
-        const YOUR_SERVICE_ID = "sendgrid_calvin";
-        const YOUR_TEMPLATE_ID = "template_ginNHzZ2";
-
-        const MY_VARS = {
-            from_name: "Calvin shop",
-            mail_to: mail,
-            message_html: "Här kommer prudukterna och sånt"
-        }
-
-        window.emailjs.send(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, MY_VARS)
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            }
-        );
-    }
-
+    
+    
     const calculateTotal = () =>{
         totalPrice = cart.reduce((total, item)=>{
             return total + item.price;
@@ -65,12 +57,40 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
         totalPrice=totalPrice+shippingPrice;
         return totalPrice;
     }
-
+    
     
     calculateTotal()
+    
+    const elementToRender = "<div> <p>" + userData.firstname + " " + userData.lastname + "</p>"+
+                                "<p>" + userData.adress + "</p> <p>" + userData.zipcode + "</p> <p>" + userData.city + "</p>"+
+                                "<p>" + userData.email + "</p> <hr/> <ol>" + userCartMail + "</ol> <p>Shipping: " + shippingPrice + "</p> <hr/> <p>Total: " +
+                                totalPrice + "</p> </div>"
+    
+    const sendMail = ()=>{
+        const YOUR_SERVICE_ID = "sendgrid_calvin";
+        const YOUR_TEMPLATE_ID = "calvin_shop";
+        
+        const MY_VARS = {
+            /*from_name: "Calvin shop",*/
+            mail_to: userData.email,
+            message_html: elementToRender
+        }
+        
+        
+        window.emailjs.send(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, MY_VARS)
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+                console.log(error.text);
+            }
+        );
+    }
+
+    //return elementToRender
+
     return(
         <div>
-            {orderConfirmed ? <h1>Confirmed</h1> : <p>Check your credentials and confirm order</p>}
+        {orderConfirmed ? <h1>Confirmed!</h1> : <p>Check your credentials and confirm order!</p>}
             <p>{userData.firstname} {userData.lastname}</p>
             <p>{userData.adress}</p>
             <p>{userData.zipcode}</p>
