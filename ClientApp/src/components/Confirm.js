@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react"
 import { ProductsContext } from "./ProductsContext"
+import PayPalCheckout from "./PayPalCheckout"
+//import ReactDomServer from "react-dom/server"
 
 
 /*
@@ -45,7 +47,8 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
         setCart([]);
 
         /* Send mail to user and company */
-        sendMail("hotheda@gmail.com, dev@odehammar.com")
+        sendMail()
+        //payPalCheckout()
     }
 
     
@@ -61,49 +64,53 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
     
     calculateTotal()
     
-    const elementToRender = "<div> <p>" + userData.firstname + " " + userData.lastname + "</p>"+
-                                "<p>" + userData.adress + "</p> <p>" + userData.zipcode + "</p> <p>" + userData.city + "</p>"+
-                                "<p>" + userData.email + "</p> <hr/> <ol>" + userCartMail + "</ol> <p>Shipping: " + shippingPrice + "</p> <hr/> <p>Total: " +
-                                totalPrice + "</p> </div>"
     
     const sendMail = ()=>{
         const YOUR_SERVICE_ID = "sendgrid_calvin";
         const YOUR_TEMPLATE_ID = "calvin_shop";
+        const mailMessageCredentials = "<div> <p>" + userData.firstname + " " + userData.lastname + "</p>"+
+                                    "<p>" + userData.adress + "</p> <p>" + userData.zipcode + "</p> <p>" + userData.city + "</p>"+
+                                    "<p>" + userData.email + "</p> <hr/>"
+    
+        const mailMessageProducts ="<ul>" + userCartMail + "</ul> <p>Shipping: " + shippingPrice + "</p> <hr/> <p>Total: " +
+                                    totalPrice + "</p> </div>"
         
         const MY_VARS = {
             /*from_name: "Calvin shop",*/
             mail_to: userData.email,
-            message_html: elementToRender
+            message_html: mailMessageCredentials+mailMessageProducts
         }
         
+        console.log(MY_VARS.message_html)
         
+        //Code to send E-mail from EmailJS API
+        /*
         window.emailjs.send(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, MY_VARS)
         .then((result) => {
             console.log(result.text);
         }, (error) => {
                 console.log(error.text);
             }
-        );
+        );*/
     }
-
-    //return elementToRender
 
     return(
         <div>
-        {orderConfirmed ? <h1>Confirmed!</h1> : <p>Check your credentials and confirm order!</p>}
+            {orderConfirmed ? <h1>Confirmed!</h1> : <p>Check your credentials and confirm order!</p>}
             <p>{userData.firstname} {userData.lastname}</p>
             <p>{userData.adress}</p>
             <p>{userData.zipcode}</p>
             <p>{userData.city}</p>
             <p>{userData.email}</p>
             <hr/>
-            <ol>
+            <ul>
                 {userCart}
-            </ol>
+            </ul>
             <p>Shipping: {shippingPrice}$</p>
             <hr/>
             <p>Total: {totalPrice}$</p>
-            {!orderConfirmed && <button onClick={handleClick}>Confirm order</button>}
+            {!orderConfirmed && <button onClick={handleClick}>Confirm order</button> }
+            <PayPalCheckout/>
         </div>
     )
 }
