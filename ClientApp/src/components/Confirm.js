@@ -55,7 +55,7 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
     
     const calculateTotal = () =>{
         totalPrice = cart.reduce((total, item)=>{
-            return total + item.price;
+            return total + (item.price*item.inCart );
         },0)
         totalPrice=totalPrice+shippingPrice;
         return totalPrice;
@@ -110,7 +110,7 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
             <hr/>
             <p>Total: {totalPrice}$</p>
             {!orderConfirmed && <button onClick={handleClick}>Confirm order</button> }
-            <PayPalCheckout/>
+            <PayPalCheckout userData={userData} orderItems={orderItems} totalPrice={totalPrice}/>
         </div>
     )
 }

@@ -1,31 +1,45 @@
 import React, { useEffect, useRef, useState } from "react"
-import ProductCard from "./ProductCard"
 
-export default function PayPalCheckout(){
+export default function PayPalCheckout(props){
     const [paidFor, setPaidFor] = useState(false)
     const [error, setError] = useState(null)
     let paypalRef = useRef()
 
     const product = {
-        price: 777.77,
-        name: 'comfy chair',
+        price: 1.50,
         description: 'fancy chair, like new',
-      };
+    };
+
+    const itemsPaypal = props.orderItems.map((item)=>{
+        return ({
+            description: (item.description),
+            amount: {
+                currency_code: "USD",
+                value: item.price
+            }
+        })
+    })
+
 
     useEffect(() =>{
         window.paypal.Buttons({
-            creareOrder: (data, actions) => {
+            createOrder: (data, actions) => {
                 return actions.order.create({
-                    purchace_units: [
-                        {
-                            description: product.description,
+                    purchase_units: [{
+                        
+                            description: "Calvin webshop",
                             amount: {
                                 currency_code: "USD",
-                                value: product.price,
+                                details: {
+                                    subtotal: 1.09,
+                                    shipping: 0.02,
+                                    tax: 0.33
+                                  },
+                                value: props.totalPrice,
                             },
-                        },
-                    ],
-                });
+                        }],
+                    
+                })
             },
             onApprove: async (data, actions) => {
                 const order = await actions.order.capture();
@@ -34,7 +48,7 @@ export default function PayPalCheckout(){
             },
             onError: err => {
                 setError(err)
-                console.log(err)
+                console.log(error)
             }
         })
         .render(paypalRef)
