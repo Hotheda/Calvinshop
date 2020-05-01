@@ -4,6 +4,7 @@ import {ProductsContext} from "./ProductsContext"
 function ProductCard(props){
     const [seletedSize, setSize]=useState(String(props.item.size[0]) )
     const [/*products*/, /*setProducts*/, cartList, setCartList] = useContext(ProductsContext)
+    const [buttonText, setButtonText] = useState("Buy now")
 
     function addToCart(item){
         /***** Check if item is in cart  *****/
@@ -18,16 +19,25 @@ function ProductCard(props){
                 if(newitem.id===product.id){
                     product.inCart++;
                     isInCart=true
-                    alert(item.name+" added to cart")
+                    changeButtonText()
                 }
             });
         }
         if(!isInCart){
             setCartList([...tempCart, newitem])
-            alert(item.name+" added to cart")
+            changeButtonText()
         }else
             setCartList([...tempCart])
+
     }
+
+    function changeButtonText(){
+        setButtonText("Added to cart")
+        setTimeout(()=>{
+            setButtonText("Buy now")
+        },1500)
+    }
+
 
     function onSizeChange(e){
         setSize(e.target.value)
@@ -38,14 +48,13 @@ function ProductCard(props){
             <img className= "product_img" alt="productimage" src={"./img/products/"+props.item.img}/>
             <h3>{props.item.name}</h3>
             <p>{props.item.description}</p>
-            <p><strong>{props.item.price}$</strong></p>
             <select value={seletedSize} onChange={(e)=>onSizeChange(e)}>
                 {props.item.size.map((myItem=>{
                     return( <option key={myItem} value={myItem}>{myItem}</option> )
                 }))}
             </select>
-            
-            <button onClick={()=>addToCart(props.item)} >Buy now</button>
+            <p><strong>{props.item.price}$</strong></p>
+            <button onClick={()=>addToCart(props.item)} >{buttonText}</button>
         </div>
     )
 }
