@@ -110,7 +110,11 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
             <hr/>
             <p>Total: {totalPrice}$</p>
             {!orderConfirmed && <button onClick={handleClick}>Confirm order</button> }
-            <PayPalCheckout userData={userData} orderItems={orderItems} totalPrice={totalPrice} setOrderConfirmed={setOrderConfirmed.bind(this)}/>
+            <PayPalCheckout userData={userData}
+                                                orderItems={orderItems}
+                                                totalPrice={totalPrice}
+                                                orderConfirmed={orderConfirmed}
+                                                setOrderConfirmed={setOrderConfirmed.bind(this)}/>
         </div>
     )
 }

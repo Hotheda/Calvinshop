@@ -1,15 +1,10 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef} from "react"
 
 export default function PayPalCheckout(props){
-    const [paidFor, setPaidFor] = useState(false)
-    const [error, setError] = useState(null)
+    //const [error, setError] = useState(null)
     let paypalRef = useRef()
 
-    const product = {
-        price: 1.50,
-        description: 'fancy chair, like new',
-    };
-
+    /*
     const itemsPaypal = props.orderItems.map((item)=>{
         return ({
             description: (item.description),
@@ -18,7 +13,7 @@ export default function PayPalCheckout(props){
                 value: item.price
             }
         })
-    })
+    })*/
 
 
     useEffect(() =>{
@@ -43,21 +38,19 @@ export default function PayPalCheckout(props){
             },
             onApprove: async (data, actions) => {
                 const order = await actions.order.capture();
-                setPaidFor(true)
                 props.setOrderConfirmed(true)
-                console.log(order)
-            },
+            }/*
             onError: err => {
                 setError(err)
                 //console.log(error)
-            }
+            }*/
         })
         .render(paypalRef)
     })
 
     return(
         <div>
-            {paidFor ? (
+            {props.orderConfirmed ? (
                 <div>
                     <h1>Your order is payed, ty!</h1>
                 </div>
