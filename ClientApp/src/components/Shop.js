@@ -12,7 +12,7 @@ function Shop(){
             <h1 className="shop_header">Products</h1>
             <div className="products">            
                 {productCards}
-            </div>
+            </div>            
         </div>
     )
 }

@@ -167,6 +167,17 @@ body{
     width: 120px;
 }
 
+.product_details{
+    position: absolute;
+    margin: auto;
+    padding: 10%;
+    left: 20%;
+    right: 20%;
+    top: 20%;
+    bottom: 20%;
+    background: green;
+}
+
 /****** Cart ******/
 .cartitem{
     display: flex;
