@@ -44,11 +44,12 @@ export default function PayPalCheckout(props){
             onApprove: async (data, actions) => {
                 const order = await actions.order.capture();
                 setPaidFor(true)
+                props.setOrderConfirmed(true)
                 console.log(order)
             },
             onError: err => {
                 setError(err)
-                console.log(error)
+                //console.log(error)
             }
         })
         .render(paypalRef)
