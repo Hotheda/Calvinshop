@@ -47,6 +47,7 @@ function Cart(){
         <div>
             <h1>Checkout</h1>
             <ul>
+                <li className="cartitem"><input value="Qty"/><p alt="image_temp"></p><p>Product:</p><p>Price:</p></li>
                 {!cartItems ? <h3>No products</h3> : cartItems}
                 {/*cartItems*/}
             </ul>

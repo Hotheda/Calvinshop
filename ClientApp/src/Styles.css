@@ -16,7 +16,7 @@ body{
 
 /****** NAVBAR ******/
 .mainNav{
-    width: 100vw;
+    width: 99vw;
     display: flex;
     height: 2rem;
     justify-content: space-between;
@@ -130,7 +130,8 @@ body{
 
 /****** SHOP ******/
 .shop_main{
-    height: 100vh;
+    /*height: 90vh;*/
+    flex-grow: 1;
     background: rgb(231, 231, 2390);
 }
 
@@ -145,7 +146,7 @@ body{
 .product_frame{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;    
 
     background: rgba(245, 245, 245, 1);
     border: 1px solid lightgrey;
@@ -170,12 +171,23 @@ body{
 .product_details{
     position: absolute;
     margin: auto;
-    padding: 10%;
-    left: 20%;
-    right: 20%;
-    top: 20%;
-    bottom: 20%;
-    background: green;
+    height: 50%;
+    width: 50%;
+    /*padding: 0%;*/
+    left: 25%;
+    top: 25%;
+    align-items: center;
+    background: white;
+    box-shadow: 5px 5px 10px rgb(83, 83, 83);
+    /*text-align: center;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.product_details button:hover{
+    background: lightgreen;
 }
 
 /****** Cart ******/
