@@ -42,7 +42,7 @@ function ProductCard(props){
     }
 
 
-    return (        
+    return (
         <div className="product_frame">
             <div className="product_details_small" onClick={()=>setShowDetails(true)}>
                 <img className= "product_img" alt="productimage" src={"./img/products/"+props.item.img}/>

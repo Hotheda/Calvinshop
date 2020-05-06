@@ -12,7 +12,7 @@ function Cart(){
     // Checking number of items so we dont go negative or to big
     const handleNumberOfItems = (e,index)=>{
         var tempCart = [...cartList];
-        if( parseInt(e.target.value)>0 && parseInt(e.target.value)<11 ){
+        if( parseInt(e.target.value)>0 && parseInt(e.target.value)<21 ){
             tempCart[index].inCart = parseInt(e.target.value);
         }
         setCartList([...tempCart]);
@@ -23,14 +23,15 @@ function Cart(){
             total+= (item.price * item.inCart)
                 return(
                     <tr  key={item.id} className="cart_item">
-                        <td>
+                        <td className="cart_image">
                             <img alt="cart_image" src={"./img/products/"+item.img}/>
                         </td>
                         <td>{item.name} Size:{item.size}</td>
                         <td>
-                            <input type="number" value={item.inCart} onChange={(e)=>handleNumberOfItems(e,index, )}/>
+                            <input type="number" value={item.inCart} onChange={(e)=>handleNumberOfItems(e,index, )}
+                                                    onClick={e=>e.target.select()} />
                         </td>
-                        <td>Price:{item.price}$</td>
+                        <td>{item.price}$</td>
                         <td>
                             {/* Change to trashcan icon */}
                             <button onClick={(e)=>{
@@ -40,7 +41,6 @@ function Cart(){
                             }
                             }>Remove</button>
                         </td>
-                        <hr/>
                     </tr>
                 )
         })
@@ -64,9 +64,9 @@ function Cart(){
             <h1>Cart</h1>
             <table  className="cart_table">
                 <tr className="cart_item">
+                    <th className="image_temp"> </th>
+                    <th>Product:</th>
                     <th>Qty</th>
-                    <th alt="image_temp">Product:</th>
-                    <th> </th>
                     <th>Price:</th>
                     <th> </th>
                 </tr>
