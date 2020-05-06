@@ -44,7 +44,7 @@ function ProductCard(props){
 
     return (        
         <div className="product_frame">
-            <div onClick={()=>setShowDetails(true)}>
+            <div className="product_details_small" onClick={()=>setShowDetails(true)}>
                 <img className= "product_img" alt="productimage" src={"./img/products/"+props.item.img}/>
                 <h3>{props.item.name}</h3>
                 <p>{props.item.description}</p>
@@ -54,11 +54,10 @@ function ProductCard(props){
                     return( <option key={myItem} value={myItem}>{myItem}</option> )
                 }))}
             </select>*/}
-                <ProductSizeDropdown item={props.item} seletedSize={seletedSize} setSelectedSize={setSelectedSize}/>
-                <p><strong>{props.item.price}$</strong></p>
             </div>
+                <ProductSizeDropdown item={props.item} seletedSize={seletedSize} setSelectedSize={setSelectedSize}/>
+                <p className="product_price_small">{props.item.price}$</p>
                 <button onClick={()=>addToCart(props.item, seletedSize)} >{buttonText}</button>
-                <button onClick={()=>setShowDetails(true)} >More info</button>
             {showDetails && <ProductDetail setShowDetails={setShowDetails} item={props.item} addToCart={addToCart}
                                             seletedSize={seletedSize} setSelectedSize={setSelectedSize}
                                             buttonText={buttonText}/>}

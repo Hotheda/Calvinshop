@@ -21,39 +21,61 @@ function Cart(){
     if(cartList.length!==0){        
         cartItems = cartList.map((item, index)=>{
             total+= (item.price * item.inCart)
-            return (<div key={item.id}>
-                        <li className="cartitem">
+                return(
+                    <tr  key={item.id} className="cart_item">
+                        <td>
+                            <img alt="cart_image" src={"./img/products/"+item.img}/>
+                        </td>
+                        <td>{item.name} Size:{item.size}</td>
+                        <td>
                             <input type="number" value={item.inCart} onChange={(e)=>handleNumberOfItems(e,index, )}/>
-                            <img className= "product_img" alt="cart_image" src={"./img/products/"+item.img}/>
-                            <p>{item.name} Size:{item.size}</p>
-                            <p>Price:{item.price}$</p>
+                        </td>
+                        <td>Price:{item.price}$</td>
+                        <td>
+                            {/* Change to trashcan icon */}
                             <button onClick={(e)=>{
                                 let tempCart = [...cartList]
                                 tempCart.splice(index,1)
                                 setCartList(tempCart)
                             }
                             }>Remove</button>
-                            <hr/>
-                        </li>
-                    </div>)
+                        </td>
+                        <hr/>
+                    </tr>
+                )
         })
     }
 
      /*************************
       * TODO ADD CHANGE LIST  *
       *************************/
-
+    if(cartList.length==0){
+        return(
+            <div className = "cart_main">
+                <h1>No products in cart</h1>
+                <Link to="./shop">Back to shop</Link>
+            </div>
+        )
+    }
+    else
+    
     return(
-        <div>
-            <h1>Checkout</h1>
-            <ul>
-                <li className="cartitem"><input value="Qty"/><p alt="image_temp"></p><p>Product:</p><p>Price:</p></li>
+        <div className = "cart_main">
+            <h1>Cart</h1>
+            <table  className="cart_table">
+                <tr className="cart_item">
+                    <th>Qty</th>
+                    <th alt="image_temp">Product:</th>
+                    <th> </th>
+                    <th>Price:</th>
+                    <th> </th>
+                </tr>
                 {!cartItems ? <h3>No products</h3> : cartItems}
                 {/*cartItems*/}
-            </ul>
+            </table>
             <h2>{total} $</h2>
             <div>
-            {cartList.length!==0 ? <Link to="./checkout">Checkout</Link> : <Link to="./shop">Back to shop</Link>}
+                <Link to="./checkout">Checkout</Link>
             </div>
         </div>
     )
