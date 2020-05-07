@@ -6,7 +6,7 @@ import ProductSizeDropdown from "./ProductSizeDropdown"
 function ProductCard(props){
     const [seletedSize, setSelectedSize]=useState(String(props.item.size[0]) )
     const [/*products*/, /*setProducts*/, cartList, setCartList] = useContext(ProductsContext)
-    const [buttonText, setButtonText] = useState("Buy now")
+    const [buttonText, setButtonText] = useState("Add to cart")
     const [showDetails, setShowDetails] = useState(false)
 
     function addToCart(item, size){
@@ -35,9 +35,9 @@ function ProductCard(props){
     }
 
     function changeButtonText(){
-        setButtonText("Added to cart")
+        setButtonText("Added")
         setTimeout(()=>{
-            setButtonText("Buy now")
+            setButtonText("Add to cart")
         },1500)
     }
 
@@ -57,7 +57,7 @@ function ProductCard(props){
             </div>
                 <ProductSizeDropdown item={props.item} seletedSize={seletedSize} setSelectedSize={setSelectedSize}/>
                 <p className="product_price_small">{props.item.price}$</p>
-                <button onClick={()=>addToCart(props.item, seletedSize)} >{buttonText}</button>
+                <button className="product_add_small" onClick={()=>addToCart(props.item, seletedSize)} >{buttonText}</button>
             {showDetails && <ProductDetail setShowDetails={setShowDetails} item={props.item} addToCart={addToCart}
                                             seletedSize={seletedSize} setSelectedSize={setSelectedSize}
                                             buttonText={buttonText}/>}

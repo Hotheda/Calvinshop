@@ -13,8 +13,8 @@ export default function ProductDetail(props){
             </div>
             <ProductSizeDropdown item={props.item} seletedSize={props.seletedSize} setSelectedSize={props.setSelectedSize}/>
 
-            <button onClick={()=>props.addToCart(props.item, props.seletedSize)}>{props.buttonText}</button>
-            <button onClick={()=>props.setShowDetails(false)}>Back to shop</button>
+            <button className="product_add_big" onClick={()=>props.addToCart(props.item, props.seletedSize)}>{props.buttonText}</button>
+            <button className="product_detail_backbutton" onClick={()=>props.setShowDetails(false)}>Back to shop</button>
         </div>
     )
 }

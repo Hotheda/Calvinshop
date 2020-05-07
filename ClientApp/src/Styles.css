@@ -137,7 +137,7 @@ body{
     height: 60px;
     width: 220px;
     border-radius: 15px;
-    background-color: #8BC34A;
+    background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -178,14 +178,38 @@ body{
 .product_frame *{
     margin: 5px;
 }
-.product_frame button{
-    background-color: #2521F3;
+.product_add_small{
+    padding: 15px 22px;
+    margin: 0;
+    border-radius: 5px;
+    background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
     color: white;
-    font-size: 1.3em;
-    box-shadow: 2px 2px 3px gray;
+    font-size: 1.1em;
+    /*box-shadow: 2px 2px 3px gray;*/
 }
+.product_add_big{
+    display: inline-block;
+    padding: 15px 190px;
+    margin: 0;
+    border-radius: 5px;
+    background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
+    color: white;
+    font-size: 1.1em;
+    /*box-shadow: 2px 2px 3px gray;*/
+}
+.product_detail_backbutton{
+    display: inline-block;
+    padding: 5px 182px;
+    margin: 0;
+    border-radius: 5px;
+    background-image: linear-gradient(rgb(86, 74, 195),  rgb(56, 41, 110));
+    color: white;
+    font-size: 1.1em;
+    /*box-shadow: 2px 2px 3px gray;*/
+}
+
 .product_frame button:hover{
-    background: lightgreen;
+    background: rgb(100, 165, 100);
     color: black;
 }
 .product_details_small p{
@@ -273,7 +297,7 @@ body{
 
 
 .cart_item button{
-    background-color: gray;
+    background-color: gray;  
     color: rgb(255, 255, 255);
     font-weight: bold;
     box-shadow: 2px 2px rgb(82, 82, 82);
