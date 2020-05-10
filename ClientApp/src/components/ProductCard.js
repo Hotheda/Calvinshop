@@ -9,7 +9,7 @@ function ProductCard(props){
     const [buttonText, setButtonText] = useState("Add to cart")
     const [showDetails, setShowDetails] = useState(false)
 
-    function addToCart(item, size){
+    const addToCart=(item, size)=>{
         /***** Check if item is in cart  *****/
         var tempCart = cartList
         var isInCart=false
@@ -34,27 +34,29 @@ function ProductCard(props){
 
     }
 
-    function changeButtonText(){
+    const changeButtonText=()=>{
         setButtonText("Added")
         setTimeout(()=>{
             setButtonText("Add to cart")
         },1500)
     }
 
-
     return (
-        <div className="product_card_frame">
-            <div className="product_card" onClick={()=>setShowDetails(true)}>
-                <img className= "product_card_img" alt="productimage" src={"./img/products/"+props.item.img}/>
-                <h3>{props.item.name}</h3>
-                <p>{props.item.description}</p>
+        <div>
+            {showDetails ? <div  onClick={()=>setShowDetails(false)} className="product_details_overlay"> </div> : <div> </div> }
+            <div className="product_card_frame">
+                <div className="product_card" onClick={()=>setShowDetails(true)}>
+                    <img className= "product_card_img" alt="productimage" src={"./img/products/"+props.item.img+"_small.jpg"}/>
+                    <h3>{props.item.name}</h3>
+                    <p>{props.item.description}</p>
+                </div>
+                    <ProductSizeDropdown item={props.item} seletedSize={seletedSize} setSelectedSize={setSelectedSize}/>
+                    <p className="product_card_price">{props.item.price}$</p>
+                    <button className="product_card_add_btn" onClick={()=>addToCart(props.item, seletedSize)} >{buttonText}</button>
+                {showDetails && <ProductDetail setShowDetails={setShowDetails} item={props.item} addToCart={addToCart}
+                                                seletedSize={seletedSize} setSelectedSize={setSelectedSize}
+                                                buttonText={buttonText}/>}
             </div>
-                <ProductSizeDropdown item={props.item} seletedSize={seletedSize} setSelectedSize={setSelectedSize}/>
-                <p className="product_card_price">{props.item.price}$</p>
-                <button className="product_card_add_btn" onClick={()=>addToCart(props.item, seletedSize)} >{buttonText}</button>
-            {showDetails && <ProductDetail setShowDetails={setShowDetails} item={props.item} addToCart={addToCart}
-                                            seletedSize={seletedSize} setSelectedSize={setSelectedSize}
-                                            buttonText={buttonText}/>}
         </div>
     )
 }

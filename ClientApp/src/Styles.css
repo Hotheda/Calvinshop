@@ -66,12 +66,11 @@ body{
 /****** Landingpage ******/
 .home{
     flex-grow: 1;
-    background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) );
-    /*background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("/calvin/img/House.jpg");*/
+    background:linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.651) );
     background-size: cover;
 }
 .home_content{
-    height: 80vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     color: white;
@@ -79,49 +78,37 @@ body{
     align-items: center;
 }
 
-/* fix responsive site */
-@media only screen and (min-width: 500px){
-    .home{
-        flex-grow: 1;
-        background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("/img/House.jpg");
-        /*background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("/calvin/img/House.jpg");*/
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-    .home_content{
-        flex-direction: row;
-    }
-}
-
-
 .home_text{
-    width: 553px;
+    max-width: 553px;
     font-family: sans-serif;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    /*font-size: max(12px, 1.4rem);*/
     color: lightgray;
     position: relative;
     top: 40px;
+    padding: 5%;
     padding-left: 20px;
+    padding-bottom: 20px;
 }
 
 .home_header{
     align-items: flex-end;
     justify-content: unset;
     position: relative;
-    top: -80px;
+    top: 0px;
     padding-right: 20px;
 }
 
 .home h1{
     color: lightgray;
-    font-size: 4rem;
+    font-size: 2.5rem;
     padding: 10px 30px;
     margin: 0;
     align-items: baseline;
 }
 .home h2{
     color: lightgray;
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 0 30px;
     margin: 0;
     text-align: right;
@@ -146,6 +133,54 @@ body{
     font-size: 24px;
 }
 
+/* fix responsive site */
+@media only screen and (min-width: 670px){
+    .home{
+        flex-grow: 1;
+        /*background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("/img/House.jpg");*/
+        background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("/calvin/img/House.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .home_content{
+        flex-direction: row;
+    }
+    .home h1{
+        font-size: 6vw;
+        padding-right: 5px;
+    }
+    .home h2{
+        font-size: 3vw;
+        padding-right: 5px;
+    }
+    .home_text{
+        font-size: 1.1rem;
+        padding-left: 0;
+        width: 40vw;
+    }
+    .home_header{
+        top: -80px;
+    }
+}
+    /* fix responsive site */
+@media only screen and (min-width: 1100px){
+    .home_content{
+        flex-direction: row;
+    }
+    .home h1{
+        font-size: 4rem;
+    }
+    .home h2{
+        font-size: 2rem;
+    }
+    .home_text{
+        font-size: 1.3rem;
+    }
+    .home_header{
+        top: -80px;
+    }
+}
+
 /****** SHOP ******/
 .shop_main{
     /*height: 90vh;*/
@@ -158,20 +193,22 @@ body{
 }
 .products{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 .product_card_frame{
     display: flex;
     flex-direction: column;
-    align-items: center;    
-
+    align-items: center;
+    justify-content: center;
+    
     background: rgba(245, 245, 245, 1);
     border: 1px solid lightgrey;
     border-radius: 10px;
     box-shadow: 1px 1px lightgray;
     height: 250px;
-    width: 180px;
+    min-width: 30%;
     padding: 0px 20px 10px 20px;
     margin: 20px;
     height: fit-content;
@@ -203,6 +240,10 @@ body{
 }
 .product_card{
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .product_card p{
@@ -213,11 +254,47 @@ body{
     margin: 20px;
     width: 120px;
 }
+@media only screen and (min-width: 600px){
+    .products{
+        flex-direction: row;
+    }
+}
 
 /* PRODUCT DETAILS */
+.product_details_overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.5;
+}
+.product_details{
+    z-index: 2;
+    border-radius: 25px;
+    position: fixed;
+    margin: 0 auto;
+    min-height: 50%;
+    width: 70%;
+    min-width: 300px;
+    /*min-width: 50%;*/
+    /*padding: 0%;*/
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    background: white;
+    box-shadow: 5px 5px 10px rgb(83, 83, 83);
+    /*text-align: center;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*justify-content: center;*/
+}
 .product_details_header{
     width: 100%;
-    padding-right: 5px;
+    padding-right: 10px;
     display: flex;
     justify-content: space-between;
 }
@@ -229,44 +306,66 @@ body{
 }
 .product_details_back_btn{
     cursor: pointer;
-    padding: 2px;
+    padding: 1px;
     height: 30px;
     width: 30px;
     margin: 0;
-    border: 1px solid black;
-    border-radius: 50%;
-    color: black;
-    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 30%;
+    color: rgba(0, 0, 0, 0.637);
+    font-size: 1.7rem;
 }
 .product_details_add_btn{
     cursor: pointer;
     padding: 15px 190px;
-    margin: 0;
+    margin: 0 0 20px 0;
     border-radius: 10px;
     background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
     color: white;
     font-size: 1.1em;
     /*box-shadow: 2px 2px 3px gray;*/
 }
-
-.product_details{
-    border-radius: 25px;
-    position: absolute;
-    margin: 0 auto;
-    height: 50%;
-    width: 50%;
-    /*padding: 0%;*/
-    left: 25%;
-    top: 25%;
-    align-items: center;
-    background: white;
-    box-shadow: 5px 5px 10px rgb(83, 83, 83);
-    /*text-align: center;*/
+.product_details_slide{
+    /*width: 100%;*/
+    position: relative;
+    height: 30vh;
+    width: 100%;
+    max-height: 30vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    /*justify-content: center;*/
+    justify-content: center;
 }
+.product_details_slide p{
+    font-size: 3rem;
+    opacity: 0.4;
+}
+.product_details_slide_btn{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+.product_details_slide_btn div{
+    width: 45%;
+}
+
+
+.product_details_img{
+    /*width: 40%;*/
+    max-height: 100%;
+}
+.product_details_price{
+    font-size: 2rem;
+    font-weight: bold;
+}
+@media only screen and (max-width: 600px){
+    .product_details_add_btn{
+        padding: 15px 20%;
+    }
+}
+
 
 
 /****** Cart ******/

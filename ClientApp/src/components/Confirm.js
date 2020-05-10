@@ -40,7 +40,7 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
     })
 
 
-    const handleClick = (e)=>{
+    const orderIsConfirmed = (e)=>{
         setOrderConfirmed(!orderConfirmed)
 
         // If payment success then delete shoppingcart items
@@ -81,17 +81,16 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
             message_html: mailMessageCredentials+mailMessageProducts
         }
         
-        console.log(YOUR_SERVICE_ID,YOUR_TEMPLATE_ID, MY_VARS.message_html)
+        console.log("Sending mail")
         
         //Code to send E-mail from EmailJS API
-        /*
         window.emailjs.send(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, MY_VARS)
         .then((result) => {
             console.log(result.text);
         }, (error) => {
                 console.log(error.text);
             }
-        );*/
+        );
     }
 
     return(
@@ -109,12 +108,12 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
             <p>Shipping: {shippingPrice}$</p>
             <hr/>
             <p>Total: {totalPrice}$</p>
-            {!orderConfirmed && <button onClick={handleClick}>Confirm order</button> }
+            {/*!orderConfirmed && <button onClick={handleClick}>Confirm order</button> */}
             <PayPalCheckout userData={userData}
                                                 orderItems={orderItems}
                                                 totalPrice={totalPrice}
                                                 orderConfirmed={orderConfirmed}
-                                                setOrderConfirmed={setOrderConfirmed.bind(this)}/>
+                                                setOrderConfirmed={orderIsConfirmed.bind(this)}/>
         </div>
     )
 }

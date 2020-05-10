@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "T-shirt",
-            "img": "shirt_small.jpg",
+            "img": "shirt",
             "description": "Nice shirt with a statement",
             "price": 20,
             "size": ["S", "M", "L"],
@@ -12,7 +12,7 @@
         {
             "id": 2,
             "name": "Polo shirt",
-            "img": "shirt2_small.jpg",
+            "img": "shirt2",
             "description": "Nice polo statement is futile",
             "price": 15,
             "size": ["S", "M", "L"],
@@ -21,7 +21,7 @@
         {
             "id": 3,
             "name": "Cap",
-            "img": "cap_small.jpg",
+            "img": "cap",
             "description": "Nice cap with a statement",
             "price": 5,
             "size": ["Onesize"],
