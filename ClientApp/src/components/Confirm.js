@@ -81,7 +81,7 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
             message_html: mailMessageCredentials+mailMessageProducts
         }
         
-        console.log(MY_VARS.message_html)
+        console.log(YOUR_SERVICE_ID,YOUR_TEMPLATE_ID, MY_VARS.message_html)
         
         //Code to send E-mail from EmailJS API
         /*

@@ -49,7 +49,7 @@ function Cart(){
      /*************************
       * TODO ADD CHANGE LIST  *
       *************************/
-    if(cartList.length==0){
+    if(cartList.length===0){
         return(
             <div className = "cart_main">
                 <h1>No products in cart</h1>

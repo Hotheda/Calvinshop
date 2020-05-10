@@ -37,7 +37,7 @@ export default function PayPalCheckout(props){
                 })
             },
             onApprove: async (data, actions) => {
-                const order = await actions.order.capture();
+                /*const order = await actions.order.capture();*/
                 props.setOrderConfirmed(true)
             }/*
             onError: err => {

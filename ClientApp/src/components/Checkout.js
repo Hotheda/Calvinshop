@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 export default function Checkout(props){
+    const [validated, setValidated] = useState(false)
     const [customerData, setCustomerData] = useState({
         firstname: "",
         lastname: "",
@@ -29,9 +30,23 @@ export default function Checkout(props){
         }else if(e.target.id==="eMail"){
             setCustomerData({...customerData, email: e.target.value})
         }
-
-        //console.log(customerData.firstname)
     }
+
+    const validateForm = ()=>{
+        setValidated(false)
+        if(customerData.firstname.length<2 ||
+            customerData.lastname.length<2 ||
+                customerData.adress.length<2 ||
+                    customerData.city<2)
+            return;
+        if(customerData.email.length<5 || !customerData.email.includes("@"))
+            return;
+        setValidated(true)
+    }
+    
+    useEffect(()=>{
+        validateForm()
+    })
 
     return(
         <div>
@@ -46,13 +61,13 @@ export default function Checkout(props){
                 <p>Adress</p>
                 <input id="customerAdress" placeholder="Street adress" onChange={handleChange} value={customerData.adress}/>
                 <p>Zip code</p>
-                <input id="zipCode" placeholder="Zip code" onChange={handleChange} value={customerData.zipcode}/>
+                <input id="zipCode" placeholder="Zip code" onChange={handleChange} value={customerData.zipcode} />
                 <p>City</p>
                 <input id="city" placeholder="City" onChange={handleChange} value={customerData.city}/>
                 <p>E-mail</p>
-                <input id="eMail" placeholder="E-mail" onChange={handleChange} value={customerData.email}/>
+                <input id="eMail" type="email" placeholder="E-mail" onChange={handleChange} value={customerData.email}/>
                 <br/>
-                <button onClick={handleSubmit}>Comfirm order</button>
+                {validated ? <button onClick={handleSubmit}>Comfirm order</button> : <p>input all your information</p>}
             </form>
         </div>
     )
