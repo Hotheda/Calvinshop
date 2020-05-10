@@ -22,7 +22,7 @@ body{
     height: 3rem;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(90deg, #1976D2 -2.19%, #2196F3 -2.18%, #2521F3 101.05%, #2196F3 101.06%);
+    background: linear-gradient(180deg, #1976D2 -2.19%, #2196F3 -2.18%, #2521F3 101.05%, #2196F3 101.06%);
     color: white;
     /*padding-left: 40px;*/
 }
@@ -32,23 +32,25 @@ body{
     /*transform: 1s;*/
 }
 .link:hover, .cart_link:hover{
-    color: lightgray;
+    color: rgb(184, 184, 184);
 }
 .link, .cart_link{    
     padding: .2rem 1rem;
 }
 .cart_link{
-    background-color: #8BC34A;
+    /*background-color: #8BC34A;*/
+    background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
     margin-right: 1rem;
     border-radius: 25px;
     font-weight: bold;
 }
 
 .navLogo{
-    background-color: #8BC34A;
+    /*background-color: #8BC34A;*/
+    background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
     font-size: 1.2em;
     font-weight: bold;
-    border: 3px solid #2521F3;
+    border: 1px solid #2521F3;
     padding: 0rem .6rem;
     border-radius: 20px;
 }
@@ -159,7 +161,7 @@ body{
     align-items: center;
     justify-content: center;
 }
-.product_frame{
+.product_card_frame{
     display: flex;
     flex-direction: column;
     align-items: center;    
@@ -175,55 +177,82 @@ body{
     height: fit-content;
     overflow: hidden;
 }
-.product_frame *{
+.product_card_frame *{
     margin: 5px;
 }
-.product_add_small{
+.product_card_price{
+    color: red;
+    font-size: 2em;
+    font-weight: bold;
+}
+.product_card_add_btn{
+    cursor: pointer;
+    width: 100%;
     padding: 15px 22px;
     margin: 0;
-    border-radius: 5px;
+    border-radius: 9px;
+    background-color: black;
     background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
     color: white;
     font-size: 1.1em;
-    /*box-shadow: 2px 2px 3px gray;*/
+    box-shadow: none;
+    transition: opacity 0.5s ease;
 }
-.product_add_big{
-    display: inline-block;
-    padding: 15px 190px;
-    margin: 0;
-    border-radius: 5px;
-    background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
-    color: white;
-    font-size: 1.1em;
-    /*box-shadow: 2px 2px 3px gray;*/
+.product_card_add_btn:hover{
+    opacity: 0.7;
 }
-.product_detail_backbutton{
-    display: inline-block;
-    padding: 5px 182px;
-    margin: 0;
-    border-radius: 5px;
-    background-image: linear-gradient(rgb(86, 74, 195),  rgb(56, 41, 110));
-    color: white;
-    font-size: 1.1em;
-    /*box-shadow: 2px 2px 3px gray;*/
+.product_card{
+    cursor: pointer;
 }
 
-.product_frame button:hover{
-    background: rgb(100, 165, 100);
-    color: black;
-}
-.product_details_small p{
+.product_card p{
     color: rgb(107, 107, 107);
 }
 
-.product_img{
+.product_card_img{
     margin: 20px;
     width: 120px;
 }
 
+/* PRODUCT DETAILS */
+.product_details_header{
+    width: 100%;
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.product_details h1{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+.product_details_back_btn{
+    cursor: pointer;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+    margin: 0;
+    border: 1px solid black;
+    border-radius: 50%;
+    color: black;
+    font-size: 1.5em;
+}
+.product_details_add_btn{
+    cursor: pointer;
+    padding: 15px 190px;
+    margin: 0;
+    border-radius: 10px;
+    background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
+    color: white;
+    font-size: 1.1em;
+    /*box-shadow: 2px 2px 3px gray;*/
+}
+
 .product_details{
+    border-radius: 25px;
     position: absolute;
-    margin: auto;
+    margin: 0 auto;
     height: 50%;
     width: 50%;
     /*padding: 0%;*/
@@ -236,16 +265,9 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /*justify-content: center;*/
 }
-.product_hover{
-    cursor: pointer;
-}
-.product_price_small{
-    color: red;
-    font-size: 2em;
-    font-weight: bold;
-}
+
 
 /****** Cart ******/
 .cart_main{
