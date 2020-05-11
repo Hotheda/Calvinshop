@@ -370,7 +370,7 @@ body{
 
 /****** Cart ******/
 .cart_main{
-    overflow-x: auto;
+    /*overflow-x: auto;*/
     margin: 0 auto;
     max-width: 100vw;
 }
@@ -401,6 +401,23 @@ body{
 .cart_item img{
     width: 50px;
 }
+
+.cart_item button{
+    background-color: gray;  
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    box-shadow: 2px 2px rgb(82, 82, 82);
+}
+.cart_next_btn{
+    background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
+    border-radius: 15px;
+    margin-top: 15px;
+    padding: 10px 50px;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 350px){
     .cart_item img{
         width: 0px;
@@ -417,12 +434,20 @@ body{
 
 
 
-.cart_item button{
-    background-color: gray;  
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    box-shadow: 2px 2px rgb(82, 82, 82);
+/****** Order form name ******/
+.order_form{
+
+    margin: 25px auto;
 }
+.order_form button{
+    background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
+    color: white;
+    border-radius: 15px;
+    margin-top: 15px;
+    font-size: 1.5rem;
+    padding: 10px 50px;
+}
+
 
 
 /****** XXX ******/

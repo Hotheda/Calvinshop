@@ -24,7 +24,7 @@ function Cart(){
                 return(
                     <tr  key={item.id} className="cart_item">
                         <td className="cart_image">
-                            <img alt="cart_image" src={"./img/products/"+item.img}/>
+                            <img alt="cart_image" src={"./img/products/"+item.img+"_small.jpg"}/>
                         </td>
                         <td>{item.name} Size:{item.size}</td>
                         <td>
@@ -53,8 +53,8 @@ function Cart(){
         return(
             <div className = "cart_main">
                 <h1>No products in cart</h1>
-                <Link to="./shop">Back to shop</Link>
-            </div>
+                <Link className="cart_next_btn" to="./shop">Back to shop</Link>
+             </div>
         )
     }
     else
@@ -75,7 +75,7 @@ function Cart(){
             </table>
             <h2>{total} $</h2>
             <div>
-                <Link to="./checkout">Checkout</Link>
+                <Link className="cart_next_btn" to="./checkout">Checkout</Link>
             </div>
         </div>
     )

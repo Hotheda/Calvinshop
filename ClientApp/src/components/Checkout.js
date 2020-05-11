@@ -49,8 +49,8 @@ export default function Checkout(props){
     })
 
     return(
-        <div>
-            <p>Orderform</p>
+        <div className="order_form">
+            <h3>Input delivery adress</h3>
             <form>
                 <div>
                     <p>Name</p>
@@ -67,7 +67,7 @@ export default function Checkout(props){
                 <p>E-mail</p>
                 <input id="eMail" type="email" placeholder="E-mail" onChange={handleChange} value={customerData.email}/>
                 <br/>
-                {validated ? <button onClick={handleSubmit}>Comfirm order</button> : <p>input all your information</p>}
+                {validated ? <button onClick={handleSubmit}>Next</button> : <p>input all your information</p>}
             </form>
         </div>
     )
