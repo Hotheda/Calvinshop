@@ -381,6 +381,7 @@ body{
     z-index: 2;
     height: 100%;
     width: auto;
+    pointer-events: none;
 }
 .product_details_img_left{
     position: absolute;
