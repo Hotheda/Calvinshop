@@ -51,7 +51,7 @@ function ProductCard(props){
                     <p>{props.item.description}</p>
                 </div>
                     <ProductSizeDropdown item={props.item} seletedSize={seletedSize} setSelectedSize={setSelectedSize}/>
-                    <p className="product_card_price">{props.item.price}$</p>
+                    <p className="product_card_price">${props.item.price}</p>
                     <button className="product_card_add_btn" onClick={()=>addToCart(props.item, seletedSize)} >{buttonText}</button>
                 {showDetails && <ProductDetail setShowDetails={setShowDetails} item={props.item} addToCart={addToCart}
                                                 seletedSize={seletedSize} setSelectedSize={setSelectedSize}

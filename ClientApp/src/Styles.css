@@ -1,10 +1,11 @@
 * , *::before, *::after{
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 body{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    /*font-family: sans-serif;*/
 }
 
 .mainContainer{
@@ -48,19 +49,25 @@ body{
 .navLogo{
     /*background-color: #8BC34A;*/
     background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
-    font-size: 1.2em;
-    font-weight: bold;
-    border: 1px solid #2521F3;
+    font-size: 1.3em;
+    font-weight: normal;
+    border: 1px solid rgb(39, 39, 39);
+    text-shadow: 1px 2px 3px #686868;
     padding: 0rem .6rem;
     border-radius: 20px;
 }
 .logoLink{
     font-family: fantasy;
-    color: #2521F3;
+    color: rgb(0, 0, 0);
 }
-.navLinks{
-    font-size: 1.2em;
+.navlinks{
+    font-size: 1rem;
     display: flex;
+}
+@media only screen and (min-width: 340px){
+    .navlinks{
+        font-size: 1.2rem;
+    }
 }
 
 /****** Landingpage ******/
@@ -137,8 +144,8 @@ body{
 @media only screen and (min-width: 670px){
     .home{
         flex-grow: 1;
-        /*background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("/img/House.jpg");*/
         background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("/calvin/img/House.jpg");
+        background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url("/img/House.jpg");
         background-size: cover;
         background-repeat: no-repeat;
     }
@@ -185,7 +192,7 @@ body{
 .shop_main{
     /*height: 90vh;*/
     flex-grow: 1;
-    background: rgb(231, 231, 2390);
+    /*background: rgb(231, 231, 2390);*/
 }
 
 .shop_header{
@@ -201,12 +208,11 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    
-    background: rgba(245, 245, 245, 1);
-    border: 1px solid lightgrey;
+    justify-content: center;    
+    background: rgb(255, 255, 255);
+    border: 1px solid #F5F5ED;
     border-radius: 10px;
-    box-shadow: 1px 1px lightgray;
+    box-shadow: 1px 1px #F5F5ED;
     height: 250px;
     min-width: 30%;
     padding: 0px 20px 10px 20px;
@@ -225,18 +231,20 @@ body{
 .product_card_add_btn{
     cursor: pointer;
     width: 100%;
-    padding: 15px 22px;
+    padding: 5px 5px;
     margin: 0;
-    border-radius: 9px;
-    background-color: black;
-    background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
-    color: white;
+    border-radius: 5px;
+    background: #F5F5ED;
+    /*background-color: black;*/
+    color: #696763;
     font-size: 1.1em;
     box-shadow: none;
     transition: opacity 0.5s ease;
+    border: none;
+    transition: all 1s ease-in-out;
 }
 .product_card_add_btn:hover{
-    opacity: 0.7;
+    background: rgb(78, 110, 41, 0.3);
 }
 .product_card{
     cursor: pointer;
@@ -254,6 +262,13 @@ body{
     margin: 20px;
     width: 120px;
 }
+
+.product_size_dropdown{
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+}
+
 @media only screen and (min-width: 600px){
     .products{
         flex-direction: row;
@@ -310,22 +325,30 @@ body{
     height: 30px;
     width: 30px;
     margin: 0;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(245, 245, 237, 0.5);
     border: none;
     border-radius: 30%;
     color: rgba(0, 0, 0, 0.637);
     font-size: 1.7rem;
 }
+
 .product_details_add_btn{
     cursor: pointer;
     padding: 15px 190px;
     margin: 0 0 20px 0;
     border-radius: 10px;
-    background-image: linear-gradient(#8BC34A,  rgb(78, 110, 41));
-    color: white;
-    font-size: 1.1em;
+    border: 2px solid #F5F5ED;
+    background: #F5F5ED;
+    color: rgb(59, 59, 59);
+    font-size: 1.3em;
+    font-weight: 500;
+    transition: background 1s ease-in-out;
     /*box-shadow: 2px 2px 3px gray;*/
 }
+.product_details_add_btn:hover{
+    background: rgb(78, 110, 41, 0.3);
+}
+
 .product_details_slide{
     /*width: 100%;*/
     position: relative;
@@ -338,7 +361,7 @@ body{
 }
 .product_details_slide p{
     font-size: 3rem;
-    opacity: 0.4;
+    opacity: 0.3;
 }
 .product_details_slide_btn{
     position: absolute;
@@ -353,13 +376,40 @@ body{
 
 
 .product_details_img{
-    /*width: 40%;*/
-    max-height: 100%;
+    position: static;
+    background: white;
+    z-index: 2;
+    height: 100%;
+    width: auto;
 }
+.product_details_img_left{
+    position: absolute;
+    max-height: 80%;
+    /*transform: translateX(-120%);*/
+    transform: translateX(-150px);
+    opacity: 0.3;
+}
+.product_details_img_right{
+    position: absolute;
+    max-height: 80%;
+    /*transform: translateX(115%);*/
+    transform: translateX(150px);
+    opacity: 0.3;
+}
+
 .product_details_price{
     font-size: 2rem;
     font-weight: bold;
 }
+.product_details_description{
+    color: rgb(90, 90, 90);
+    font-size: 1.1rem;
+}
+.product_details_details{
+    width: 40%;
+    color: rgb(90, 90, 90);
+}
+    
 @media only screen and (max-width: 600px){
     .product_details_add_btn{
         padding: 15px 20%;

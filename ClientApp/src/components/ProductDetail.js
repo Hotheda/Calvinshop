@@ -18,6 +18,19 @@ export default function ProductDetail(props){
             setCurrentImage(currentImage+1)        
     }
 
+    const CheckPrevImage=()=>{
+        if(currentImage<=1)
+            return numberOfimage
+        else
+            return (currentImage-1)
+    }
+    const CheckNextImage=()=>{
+        if((currentImage+1) > numberOfimage)
+            return 1
+        else
+            return(currentImage+1)
+    }
+
     const checkFile=(fileName)=>{
         var http = new XMLHttpRequest()
         http.open("HEAD", "./img/products/"+props.item.img+"_"+fileName+".jpg", false)
@@ -29,6 +42,10 @@ export default function ProductDetail(props){
     }
 
     useEffect(()=>{
+        if(props.item.numberOfImg!==0){
+            setNumberOfImage(props.item.numberOfImg)
+            return;
+        }
         var numberToCheck=1
         while(true){
             numberToCheck+=1;
@@ -50,13 +67,16 @@ export default function ProductDetail(props){
             <div className="product_details_slide">
                 <p>&lt;</p>
                 <img className= "product_details_img" alt="productimage" src={"./img/products/"+props.item.img+"_"+currentImage+".jpg"}/>
+                <img className= "product_details_img_left" alt="productimage" src={"./img/products/"+props.item.img+"_"+CheckPrevImage()+".jpg"}/>
+                <img className= "product_details_img_right" alt="productimage" src={"./img/products/"+props.item.img+"_"+CheckNextImage()+".jpg"}/>
                 <p>&gt;</p>
                 <div className="product_details_slide_btn">
-                    <div onClick={nextImage}></div>
                     <div onClick={prevImage}></div>
+                    <div onClick={nextImage}></div>
                 </div>
             </div>
             <p className="product_details_description">{props.item.description}</p>
+            <p className="product_details_details">{props.item.details}</p>
             <ProductSizeDropdown item={props.item} seletedSize={props.seletedSize} setSelectedSize={props.setSelectedSize}/>
             <p className="product_details_price">{props.item.price} $</p>
 

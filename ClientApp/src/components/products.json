@@ -4,7 +4,9 @@
             "id": 1,
             "name": "T-shirt",
             "img": "shirt",
+            "numberOfImg": 3,
             "description": "Nice shirt with a statement",
+            "details": "Lorem ipsum ipsum lorem, 60*, Wash: lorem ipsum paprika som inte kan ipsum bajern. Kall ipsum men inte lorem som man lorem lorem",
             "price": 20,
             "size": ["S", "M", "L"],
             "color": ["blå", "röd", "gul"]
@@ -13,7 +15,9 @@
             "id": 2,
             "name": "Polo shirt",
             "img": "shirt2",
+            "numberOfImg": 3,
             "description": "Nice polo statement is futile",
+            "details": "Lorem ipsum ipsum lorem, 60*, Wash: lorem ipsum paprika som inte kan ipsum bajern. Kall ipsum men inte lorem som man lorem lorem",
             "price": 15,
             "size": ["S", "M", "L"],
             "color": ["blå", "röd", "gul"]
@@ -22,7 +26,9 @@
             "id": 3,
             "name": "Cap",
             "img": "cap",
+            "numberOfImg": 4,
             "description": "Nice cap with a statement",
+            "details": "Lorem ipsum ipsum lorem, 60*, Wash: lorem ipsum paprika som inte kan ipsum bajern. Kall ipsum men inte lorem som man lorem lorem",
             "price": 5,
             "size": ["Onesize"],
             "color": ["svart", "gul"]
