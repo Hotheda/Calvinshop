@@ -499,6 +499,10 @@ body{
     padding: 10px 50px;
 }
 
-
-
+/****** Order confirm and pay ******/
+.confirm_order{
+    margin: 0 auto;
+    width: fit-content;
+    min-width: 50%;
+}
 /****** XXX ******/

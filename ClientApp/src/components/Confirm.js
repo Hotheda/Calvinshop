@@ -94,8 +94,8 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
     }
 
     return(
-        <div>
-            {orderConfirmed ? <h1>Confirmed!</h1> : <p>Check your credentials and confirm order!</p>}
+        <div className="confirm_order">
+            {orderConfirmed ? <h1>Confirmed!</h1> : <h3>Check your credentials and confirm order!</h3>}
             <p>{userData.firstname} {userData.lastname}</p>
             <p>{userData.adress}</p>
             <p>{userData.zipcode}</p>
