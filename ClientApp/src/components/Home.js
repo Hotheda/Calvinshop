@@ -14,7 +14,7 @@ function Home(){
                 </div>
             </div>
             <div className="help_btn">
-                <Link className="link" to="./about">How can i help?</Link>
+                <Link className="link" to="./about">Start shopping!</Link>
             </div>
         </div>
     )

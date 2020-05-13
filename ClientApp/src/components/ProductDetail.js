@@ -65,11 +65,11 @@ export default function ProductDetail(props){
                 <button className="product_details_back_btn" onClick={()=>props.setShowDetails(false)}>&times;</button>
             </div>
             <div className="product_details_slide">
-                <p>&lt;</p>
+                <p>&#10094;</p>
                 <img className= "product_details_img" alt="productimage" src={"./img/products/"+props.item.img+"_"+currentImage+".jpg"}/>
                 <img className= "product_details_img_left" alt="productimage" src={"./img/products/"+props.item.img+"_"+CheckPrevImage()+".jpg"}/>
                 <img className= "product_details_img_right" alt="productimage" src={"./img/products/"+props.item.img+"_"+CheckNextImage()+".jpg"}/>
-                <p>&gt;</p>
+                <p>&#10095;</p>
                 <div className="product_details_slide_btn">
                     <div onClick={prevImage}></div>
                     <div onClick={nextImage}></div>

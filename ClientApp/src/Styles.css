@@ -388,14 +388,14 @@ body{
     max-height: 80%;
     /*transform: translateX(-120%);*/
     transform: translateX(-150px);
-    opacity: 0.3;
+    opacity: 0.2;
 }
 .product_details_img_right{
     position: absolute;
     max-height: 80%;
     /*transform: translateX(115%);*/
     transform: translateX(150px);
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 .product_details_price{
