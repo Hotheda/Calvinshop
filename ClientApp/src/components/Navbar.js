@@ -25,15 +25,15 @@ function Navbar(){
             <div className="navLogo">
                 <Link className="logoLink" to="./">LoGO</Link>
             </div>
+            <div onClick={toggleMenu} className={navbarClass}>
+                <Link className="link" to="./about">About</Link>
+                <Link className="link" to="./shop">Shop</Link>
+                <Link className="link" to="./cart">Cart <span className="cart_link">{itemsInCart}</span></Link>
+            </div>
             <div className="nav_button" onClick={toggleMenu}>
                 <div></div>
                 <div></div>
                 <div></div>
-            </div>
-            <div onClick={toggleMenu} className={navbarClass}>
-                <Link className="link" to="./about">About</Link>
-                <Link className="link" to="./shop">Shop</Link>
-                <Link className="cart_link" to="./cart">Cart: <span>{itemsInCart}</span></Link>
             </div>
         </nav>
     )

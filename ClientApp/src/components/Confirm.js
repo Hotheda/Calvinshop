@@ -95,25 +95,28 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
 
     return(
         <div className="confirm_order">
-            {orderConfirmed ? <h1>Confirmed!</h1> : <h3>Check your credentials and confirm order!</h3>}
-            <p>{userData.firstname} {userData.lastname}</p>
-            <p>{userData.adress}</p>
-            <p>{userData.zipcode}</p>
-            <p>{userData.city}</p>
-            <p>{userData.email}</p>
-            <hr/>
-            <ul>
-                {userCart}
-            </ul>
-            <p>Shipping: {shippingPrice}$</p>
-            <hr/>
-            <p>Total: {totalPrice}$</p>
-            {/*!orderConfirmed && <button onClick={handleClick}>Confirm order</button> */}
-            <PayPalCheckout userData={userData}
-                                                orderItems={orderItems}
-                                                totalPrice={totalPrice}
-                                                orderConfirmed={orderConfirmed}
-                                                setOrderConfirmed={orderIsConfirmed.bind(this)}/>
+            <div>
+                {orderConfirmed ? <h1>Confirmed!</h1> : <h3>Check your credentials and confirm order!</h3>}
+                <p>{userData.firstname} {userData.lastname}</p>
+                <p>{userData.adress}</p>
+                <p>{userData.zipcode}</p>
+                <p>{userData.city}</p>
+                <p>{userData.email}</p>
+                <hr/>
+                <ul>
+                    {userCart}
+                </ul>
+                <p>Shipping: {shippingPrice}$</p>
+                <hr/>
+                <p>Total: {totalPrice}$</p>
+
+                {/*!orderConfirmed && <button onClick={handleClick}>Confirm order</button> */}
+                <PayPalCheckout userData={userData}
+                                                    orderItems={orderItems}
+                                                    totalPrice={totalPrice}
+                                                    orderConfirmed={orderConfirmed}
+                                                    setOrderConfirmed={orderIsConfirmed.bind(this)}/>
+            </div>
         </div>
     )
 }
