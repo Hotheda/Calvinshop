@@ -4,19 +4,7 @@ export default function PayPalCheckout(props){
     //const [error, setError] = useState(null)
     let paypalRef = useRef()
 
-    /*
-    const itemsPaypal = props.orderItems.map((item)=>{
-        return ({
-            description: (item.description),
-            amount: {
-                currency_code: "USD",
-                value: item.price
-            }
-        })
-    })*/
-
-
-    useEffect(() =>{
+       useEffect(() =>{
         window.paypal.Buttons({
             createOrder: (data, actions) => {
                 return actions.order.create({
@@ -39,11 +27,11 @@ export default function PayPalCheckout(props){
             onApprove: async (data, actions) => {
                 /*const order = await actions.order.capture();*/
                 props.setOrderConfirmed(true)
-            }/*
+            },
             onError: err => {
-                setError(err)
-                //console.log(error)
-            }*/
+                //setError(err)
+                console.log(error)
+            }
         })
         .render(paypalRef)
     })

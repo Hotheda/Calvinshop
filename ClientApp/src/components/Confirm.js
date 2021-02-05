@@ -76,7 +76,6 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
                                     totalPrice + "</p> </div>"
         
         const MY_VARS = {
-            /*from_name: "Calvin shop",*/
             mail_to: userData.email,
             message_html: mailMessageCredentials+mailMessageProducts
         }
@@ -110,7 +109,6 @@ const [ /* */ , /* */, cart, setCart] = useContext(ProductsContext)
                 <hr/>
                 <p>Total: {totalPrice}$</p>
 
-                {/*!orderConfirmed && <button onClick={handleClick}>Confirm order</button> */}
                 <PayPalCheckout userData={userData}
                                                     orderItems={orderItems}
                                                     totalPrice={totalPrice}

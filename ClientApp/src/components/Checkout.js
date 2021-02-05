@@ -41,9 +41,6 @@ export default function Checkout(props){
             return;
         if(customerData.email.length<5)
             return;
-        //Internet explorer fix
-        /*if(!customerData.email.includes("@"))
-                return;*/
         setValidated(true)
     }
     
